@@ -1,8 +1,6 @@
 package co.verisoft.examples.calculator;
-
 import co.verisoft.examples.pageobjects.DriverManager;
 import io.appium.java_client.AppiumDriver;
-
 import java.net.MalformedURLException;
 
 public class BaseTest {

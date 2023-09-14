@@ -8,7 +8,4 @@ public abstract class BasePage {
     public BasePage(AppiumDriver driver) {
         this.driver = driver;
     }
-
-
-
 }

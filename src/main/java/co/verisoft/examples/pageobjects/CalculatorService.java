@@ -2,7 +2,6 @@ package co.verisoft.examples.pageobjects;
 
 public class CalculatorService {
     CalculatorPage calculatePage;
-
     public CalculatorService(CalculatorPage calculatePage) {
         this.calculatePage = calculatePage;
     }
