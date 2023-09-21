@@ -3,6 +3,7 @@ package co.verisoft.examples.pageobjects;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
+import io.appium.java_client.remote.AutomationName;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import java.net.MalformedURLException;
@@ -22,6 +23,7 @@ public class DriverManager {
 
     public AppiumDriver driverInit() throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.ANDROID_UIAUTOMATOR2);
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME,platformName);
         capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, platformVersion);
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, deviceName);

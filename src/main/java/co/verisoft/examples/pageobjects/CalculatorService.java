@@ -10,7 +10,6 @@ public class CalculatorService {
         calculatePage.clickOnDigit(num1);
         calculatePage.clickOnPlus();
         calculatePage.clickOnDigit(num2);
-        calculatePage.clickOnEquals();
 
         String resultText = calculatePage.getResult();
         return Integer.parseInt(resultText);

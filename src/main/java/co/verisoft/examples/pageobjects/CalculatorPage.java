@@ -1,43 +1,32 @@
 package co.verisoft.examples.pageobjects;
 
-import co.verisoft.fw.utils.Waits;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class CalculatorPage extends BasePage {
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(10));
 
-    @FindBy(id = "op_add")
-    private WebElement add;
+    By add = By.id("op_add");
 
-    @FindBy(id = "eq")
-    private WebElement equal;
-
-    @FindBy(id = "result")
-    private WebElement result;
+    By result = By.id("result");
 
     public CalculatorPage(AppiumDriver driver) {
         super(driver);
     }
 
-    private WebElement getDigitSelectorId(int number) {
-        return (WebElement) By.id("digit_" + number);
-    }
-
     public void clickOnDigit(int number) {
-        Waits.visibilityOf(driver, 30, getDigitSelectorId(number)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("digit_" + number))).click();
     }
 
     public void clickOnPlus() {
-        Waits.visibilityOf(driver, 30, add).click();
-    }
-
-    public void clickOnEquals() {
-        Waits.visibilityOf(driver, 30, equal).click();
+        wait.until(ExpectedConditions.elementToBeClickable(add)).click();
     }
 
     public String getResult() {
-        return Waits.visibilityOf(driver, 30, result).getText();
+        return wait.until(ExpectedConditions.elementToBeClickable(result)).getText();
     }
 }
